@@ -1,0 +1,26 @@
+.remember {
+	background: #44D300;
+
+}
+
+.nav-remember-font {
+	color: white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 20px;
+	text-align: center;
+	padding-top: 8px;
+}
+
+.remember-index {
+	border: 1px solid #112906;
+	min-height: 50px;
+}
+
+.remember-login-button {
+	background: #246F00;
+	color: white;
+}
+
+.login-form {
+	text-align: center;
+}
