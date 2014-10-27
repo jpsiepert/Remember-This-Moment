@@ -1,0 +1,146 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'i', 'hapi-promise', '-g' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose cache add [ 'hapi-promise', null ]
+5 verbose cache add name=undefined spec="hapi-promise" args=["hapi-promise",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'hapi-promise',
+6 verbose parsed url   path: 'hapi-promise',
+6 verbose parsed url   href: 'hapi-promise' }
+7 silly lockFile a4a1c902-hapi-promise hapi-promise
+8 verbose lock hapi-promise /Users/Josh/.npm/a4a1c902-hapi-promise.lock
+9 silly lockFile a4a1c902-hapi-promise hapi-promise
+10 silly lockFile a4a1c902-hapi-promise hapi-promise
+11 verbose addNamed [ 'hapi-promise', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile c9348f3d-hapi-promise hapi-promise@
+14 verbose lock hapi-promise@ /Users/Josh/.npm/c9348f3d-hapi-promise.lock
+15 silly addNameRange { name: 'hapi-promise', range: '*', hasData: false }
+16 verbose request where is /hapi-promise
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id afefb58fe89e0a03
+19 verbose url raw /hapi-promise
+20 verbose url resolving [ 'https://registry.npmjs.org/', './hapi-promise' ]
+21 verbose url resolved https://registry.npmjs.org/hapi-promise
+22 verbose request where is https://registry.npmjs.org/hapi-promise
+23 info trying registry request attempt 1 at 11:51:12
+24 verbose etag "24R1XFF8DPUP3NDSCH407HD1Z"
+25 http GET https://registry.npmjs.org/hapi-promise
+26 http 304 https://registry.npmjs.org/hapi-promise
+27 silly registry.get cb [ 304,
+27 silly registry.get   { date: 'Mon, 27 Oct 2014 17:51:13 GMT',
+27 silly registry.get     server: 'Apache',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'last-modified': 'Mon, 27 Oct 2014 17:51:13 GMT',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     etag: '"24R1XFF8DPUP3NDSCH407HD1Z"',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-lax1422-LAX',
+27 silly registry.get     'x-cache': 'HIT',
+27 silly registry.get     'x-cache-hits': '1',
+27 silly registry.get     'x-timer': 'S1414432273.035348,VS0,VE42',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'content-length': '0',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 verbose etag https://registry.npmjs.org/hapi-promise from cache
+29 silly addNameRange number 2 { name: 'hapi-promise', range: '*', hasData: true }
+30 silly addNameRange versions [ 'hapi-promise', [ '0.0.2', '0.0.4' ] ]
+31 verbose addNamed [ 'hapi-promise', '0.0.4' ]
+32 verbose addNamed [ '0.0.4', '0.0.4' ]
+33 silly lockFile 8b51f498-hapi-promise-0-0-4 hapi-promise@0.0.4
+34 verbose lock hapi-promise@0.0.4 /Users/Josh/.npm/8b51f498-hapi-promise-0-0-4.lock
+35 warn deprecated hapi-promise@0.0.4: Renamed to hapi-as-promised
+36 silly lockFile 8b51f498-hapi-promise-0-0-4 hapi-promise@0.0.4
+37 silly lockFile 8b51f498-hapi-promise-0-0-4 hapi-promise@0.0.4
+38 silly lockFile c9348f3d-hapi-promise hapi-promise@
+39 silly lockFile c9348f3d-hapi-promise hapi-promise@
+40 silly resolved [ { name: 'hapi-promise',
+40 silly resolved     version: '0.0.4',
+40 silly resolved     description: 'A hapi plugin that allows you to return promises in your request handlers',
+40 silly resolved     main: 'index.js',
+40 silly resolved     scripts: { test: 'lab test.js' },
+40 silly resolved     repository: { type: 'git', url: 'https://github.com/valet-io/hapi-promise' },
+40 silly resolved     keywords: [ 'hapi', 'promises' ],
+40 silly resolved     author:
+40 silly resolved      { name: 'Ben Drucker',
+40 silly resolved        email: 'bvdrucker@gmail.com',
+40 silly resolved        url: 'http://www.bendrucker.me/' },
+40 silly resolved     license: 'MIT',
+40 silly resolved     bugs: { url: 'https://github.com/valet-io/hapi-promise/issues' },
+40 silly resolved     homepage: 'https://github.com/valet-io/hapi-promise',
+40 silly resolved     devDependencies: { hapi: '~2.1.2', lab: '~1.5.0', bluebird: '~1.0.1' },
+40 silly resolved     peerDependencies: { hapi: '2.x' },
+40 silly resolved     _id: 'hapi-promise@0.0.4',
+40 silly resolved     dist:
+40 silly resolved      { shasum: '88504312579b847ce0b5071b49a1365193f9d799',
+40 silly resolved        tarball: 'http://registry.npmjs.org/hapi-promise/-/hapi-promise-0.0.4.tgz' },
+40 silly resolved     _from: 'hapi-promise@',
+40 silly resolved     _npmVersion: '1.3.21',
+40 silly resolved     _npmUser: { name: 'bendrucker', email: 'bvdrucker@gmail.com' },
+40 silly resolved     maintainers: [ [Object] ],
+40 silly resolved     deprecated: 'Renamed to hapi-as-promised',
+40 silly resolved     directories: {},
+40 silly resolved     _shasum: '88504312579b847ce0b5071b49a1365193f9d799',
+40 silly resolved     _resolved: 'https://registry.npmjs.org/hapi-promise/-/hapi-promise-0.0.4.tgz',
+40 silly resolved     readme: 'ERROR: No README data found!' } ]
+41 info install hapi-promise@0.0.4 into /usr/local/lib
+42 info installOne hapi-promise@0.0.4
+43 verbose lib/node_modules/hapi-promise unbuild
+44 info preuninstall hapi-promise@0.0.4
+45 info uninstall hapi-promise@0.0.4
+46 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild hapi-promise@0.0.4
+47 info postuninstall hapi-promise@0.0.4
+48 verbose tar unpack /Users/Josh/.npm/hapi-promise/0.0.4/package.tgz
+49 silly lockFile 55dcba7b-al-lib-node-modules-hapi-promise tar:///usr/local/lib/node_modules/hapi-promise
+50 verbose lock tar:///usr/local/lib/node_modules/hapi-promise /Users/Josh/.npm/55dcba7b-al-lib-node-modules-hapi-promise.lock
+51 silly lockFile 2951cd49-m-hapi-promise-0-0-4-package-tgz tar:///Users/Josh/.npm/hapi-promise/0.0.4/package.tgz
+52 verbose lock tar:///Users/Josh/.npm/hapi-promise/0.0.4/package.tgz /Users/Josh/.npm/2951cd49-m-hapi-promise-0-0-4-package-tgz.lock
+53 silly gunzTarPerm modes [ '755', '644' ]
+54 silly gunzTarPerm extractEntry package.json
+55 silly gunzTarPerm extractEntry .npmignore
+56 silly gunzTarPerm extractEntry README.md
+57 silly gunzTarPerm extractEntry LICENSE
+58 silly gunzTarPerm extractEntry index.js
+59 silly gunzTarPerm extractEntry test.js
+60 silly gunzTarPerm extractEntry .travis.yml
+61 silly lockFile 55dcba7b-al-lib-node-modules-hapi-promise tar:///usr/local/lib/node_modules/hapi-promise
+62 silly lockFile 55dcba7b-al-lib-node-modules-hapi-promise tar:///usr/local/lib/node_modules/hapi-promise
+63 silly lockFile 2951cd49-m-hapi-promise-0-0-4-package-tgz tar:///Users/Josh/.npm/hapi-promise/0.0.4/package.tgz
+64 silly lockFile 2951cd49-m-hapi-promise-0-0-4-package-tgz tar:///Users/Josh/.npm/hapi-promise/0.0.4/package.tgz
+65 info preinstall hapi-promise@0.0.4
+66 verbose readDependencies using package.json deps
+67 verbose readDependencies using package.json deps
+68 silly resolved []
+69 verbose about to build /usr/local/lib/node_modules/hapi-promise
+70 info build /usr/local/lib/node_modules/hapi-promise
+71 verbose linkStuff [ true,
+71 verbose linkStuff   '/usr/local/lib/node_modules',
+71 verbose linkStuff   true,
+71 verbose linkStuff   '/usr/local/lib/node_modules' ]
+72 info linkStuff hapi-promise@0.0.4
+73 verbose linkBins hapi-promise@0.0.4
+74 verbose linkMans hapi-promise@0.0.4
+75 verbose rebuildBundles hapi-promise@0.0.4
+76 info install hapi-promise@0.0.4
+77 info postinstall hapi-promise@0.0.4
+78 verbose already installed skipping hapi@2.x /usr/local/lib
+79 silly resolved []
+80 error peerinvalid The package hapi does not satisfy its siblings' peerDependencies requirements!
+80 error peerinvalid Peer hapi-promise@0.0.4 wants hapi@2.x
+81 error System Darwin 13.4.0
+82 error command "node" "/usr/local/bin/npm" "i" "hapi-promise" "-g"
+83 error cwd /Users/Josh/DevMountain/Remember-This-Moment
+84 error node -v v0.10.32
+85 error npm -v 1.4.28
+86 error code EPEERINVALID
+87 verbose exit [ 1, true ]

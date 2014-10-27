@@ -24,3 +24,22 @@
 .login-form {
 	text-align: center;
 }
+
+.search-feed {
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.feed-page-nav{
+	background: rgba(68, 211, 0, .2);
+	float: left;
+	list-style-type: none;
+
+}
+
+.feed-page-content{
+	background: rgba(68, 211, 0, .2);
+	float: right;
+	
+}
