@@ -6,11 +6,48 @@ var express = require("express"),
 	mongoUri = "mongodb://localhost/remember",
 	UserController = require("./libs/controllers/userController"),
 	connection = mongoose.connection,
-	cors = require("cors");
+	cors = require("cors"),
+	passport = require("passport"),
+	LocalStrategy = require("passport-local"),
+	User = require("./libs/Models/users")
+	session = require("express-session");
+	
+
+app.use(express.static(__dirname + "/public/"));
 
 app.use(bodyParser());
 
-app.use(cors())
+app.use(cors());
+
+//app.use(morgan("dev"));//log every request to the console
+
+//app.use(cookie());// read cookies (needed for auth)
+
+app.use(session({secret: "trytorememberallthesemoments"}));
+
+app.use(passport.initialize());
+
+app.use(passport.session());//persistent login sessions
+
+passport.use(new LocalStrategy(
+	{
+		usernameField: "email",
+		passwordField: "password"
+	},
+  function(email, password, done) {
+    User.findOne({ email: email, password: password }, function (err, user) {
+    	console.log(email, password);
+      if (err) { 
+      	return done(err); 
+      }
+      //if (!user) { return done(null, false); }
+      //if (!user.verifyPassword(password)) { return done(null, false); }
+      return done(null, user);
+    });
+  
+}));
+
+//app.use(flash())// used for flash messages stored in session
 
 mongoose.connect(mongoUri);
 
@@ -18,11 +55,39 @@ connection.once("open", function(){
 	console.log("express server is quacking")
 })
 
+var authenticateUser = function(req, res, next){
+	passport.authenticate("local", function(err, user, info){
+		console.log(user);
+		if(!user){
+			return res.status(401).end();
+		}
+		req.logIn(user, function(err){
+			return res.status(200).end();
+		});
+	})(req, res, next);
+}
+
 app.get("/users", UserController.get)
 
 app.post("/newUser", UserController.post)
 
+app.post("/login", authenticateUser);
 
+app.post("/logout", function(req, res){
+	console.log("made it to the server")
+	req.logout();
+	return res.status(200).end();
+})
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function (err, user) {
+    done(err, user);
+  });
+});
 
 app.listen(port, function(){
 	console.log("express")

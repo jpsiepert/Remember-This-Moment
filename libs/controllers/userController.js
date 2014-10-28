@@ -1,4 +1,5 @@
 var UserService = require("../services/userService");
+var Promise = require("bluebird");
 
 module.exports.post = function(req, res){
 	console.log("controller")
@@ -6,7 +7,7 @@ module.exports.post = function(req, res){
 		.then(function(user){
 			res.send(user);
 		}).catch(function(err){
-			res.status(500).send(err)
+			res.status(500).send("that email is already in use")
 		})
 };
 
@@ -18,3 +19,19 @@ module.exports.get = function(req, res){
 			res.status(500).json(err)
 		})
 };
+
+module.exports.getUser = function(req, res){
+	console.log("hit controller " + req.params.user)
+	 if (!req.params.user){
+				res.status(404).send("user not found")
+			}else {
+
+			UserService.getUser(req.pararms.user)
+		.then(function(user){
+			res.status(200).send("found, logging in")
+		}).catch(function(err){
+			res.status(500).send(err)
+			console.log(err)
+		})
+	}
+}

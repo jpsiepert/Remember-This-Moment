@@ -5,11 +5,12 @@ app.config(function($routeProvider){
 
 	.when("/", {
 		templateUrl: "Templates/main.html",
-		//controller: "mainCtrl"
+		controller: "loginCtrl"
 	}).when("/signup", {
 		templateUrl: "Templates/signup.html",
 		controller: "signUpCtrl"
 	}).when("/main", {
-		templateUrl: "Templates/feed.html"
+		templateUrl: "Templates/feed.html",
+		controller: "feedCtrl"
 	})
 })

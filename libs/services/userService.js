@@ -12,3 +12,10 @@ module.exports.postUser = function(user){
 module.exports.getUsers = function(){
 	return User.findAsync();
 }
+
+module.exports.getUser = function(user){
+	console.log("hit service")
+	return User.findOneAsync({email: user.email}, function(err, obj){
+		conole.log(obj)
+	})
+}

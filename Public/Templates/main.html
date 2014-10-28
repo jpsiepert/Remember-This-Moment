@@ -1,15 +1,17 @@
+<!-- {{test}} -->
+
 <div class="container remember-index">
 	<div class="row-fluid">
 		<div class="span9">
-			<form class="form-horizontal login-form">
+			<form class="form-horizontal login-form" name="login">
 				<h4>Log In</h4>
-				<input type="text" placeholder="Enter e-mail here"/>
+				<input type="text" placeholder="Enter e-mail here" ng-model="user.email" required/>
 				<br/>
 				<br/>
-				<input type="password" placeholder="Enter password here"/>
+				<input type="password" placeholder="Enter password here" ng-model="user.password" required/>
 				<br/>
 				<br/>
-				<button class="btn remember-login-button">Log In</button>
+				<button ng-disabled="login.$invalid" class="btn remember-login-button" ng-click="loginUser()">Log In</button>
 				<br/>
 				<br/>
 				<a href="/#/signup">Sign Up Here!</p>

@@ -2,10 +2,17 @@
 	<input type="text" placeholder="search"/><!-- is really going to filter the results, so it's automatic no enter or click needed -->
 </div>
 
+<br/>
+<br/>
+<div id="new-post">
+	<textarea name-of-directive class="new-post-text"></textarea>
+	<button class="btn btn-sm new-post-button" ng-click="addPost()">Remember!</button><!-- want to make this a mini button -->
+</div>
+<br/><br/>
 <div class="container-fluid">
  	<div class="row-fluid">
   	<ul class="navbar-fixed-side-left feed-page-nav">
- 			<li>Sign Out</li>
+ 			<a ng-click="logout()">Sign Out</a>
  			<li>View Text</li>
  			<li>View Photos</li>
  			<li>View Videos</li>
@@ -19,3 +26,4 @@
     </div>
   </div>
 </div>
+
