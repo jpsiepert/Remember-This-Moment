@@ -16,21 +16,15 @@ module.exports.getUsers = function(){
 module.exports.getUser = function(user){
 	console.log("hit service")
 	return User.findOne({email: user.email}).populate("posts").exec(function(err, obj){
-		console.log(obj)
 		if(!err){
-			console.log(obj)
+			console.log("userservice line 21 obj: ",obj)
 		} else {
-			console.log(err)
+			console.log("userService line 23 err: ", err)
 		}
 	})
 }
 
-module.exports.updateUser = function(user){
-	return User.findOneAndUpdateAsync({email: user.email}, user, function(err, obj){
-		if(!err){
-			console.log(obj)
-		} else {
-			console.log(err)
-		}
-	});
+module.exports.updateUser = function(userId, user){
+	console.log("userService line 28", user)
+	return User.findByIdAndUpdateAsync(userId, user)
 }

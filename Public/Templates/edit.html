@@ -1,12 +1,13 @@
 <div>
-	{{user.firstName}} <input placeholder="update First Name" ng-model="user.firstName" /><br /><br />
-	{{user.lastName}} <input placeholder="update Last Name" ng-model="user.lastName"/><br /><br />
-	{{user.email}} <input placeholder="update e-mail address" ng-model="user.email"/><br /><br />
-	<input type="password" placeholder="confirm old password" ng-blur="checkPassword()"/> <br />
-	<input type="password" placeholder="update password" ng-model="user.password"/><br />
-	<input type="password" placeholder="confirm new password" ng-keyup="confirmPwds()" />
-	<br /><br />
-	<button>Update yourself!</button>
+	First Name <input placeholder="update First Name" ng-model="user.firstName" /><br /><br />
+	Last Name <input placeholder="update Last Name" ng-model="user.lastName"/><br /><br />
+	E-mail    <input placeholder="update e-mail address" ng-model="user.email"/><br /><br />
+	          <input type="password" placeholder="confirm old password" ng-blur="checkPassword()"/> <br />
+	          <input type="password" placeholder="update password" ng-keyup="confirmPwds()" ng-model="user.password"/><br />
+			 <input type="password" placeholder="confirm new password" ng-keyup="confirmPwds()" ng-model="confirmPw"/>
+			 <br /><br />
+			 <p ng-show="password">Passwords do not match</p>
+			 <button ng-show="updateButton" ng-click="update(user)">Update yourself!</button>
 
 
 </div>

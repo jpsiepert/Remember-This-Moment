@@ -4,7 +4,7 @@ var User = require("../Models/users")
 
 module.exports.addPost = function(req, res){
 	var userId = req.params.userid
-	console.log("req.body ", req.body, "user Id ", userId)
+	console.log(" postController line 7 req.body ", req.body, " & user Id ", userId)
 	//console.log("post controller ", req.body.user + req.body.post)
 	//res.send(PostService.addPost(req.body.user, req.body.post))
 	PostService.addPost(req.body)
@@ -13,7 +13,7 @@ module.exports.addPost = function(req, res){
 			if(err){
 				res.send(err);
 			} else {
-				console.log(post);
+				//console.log("postController line 16 post: ", post);
 				user.posts.addToSet(post[0]);
 				user.save(function(err){
 					if(err){
@@ -44,10 +44,16 @@ module.exports.addPost = function(req, res){
 }
 
 module.exports.getPosts = function(req, res){
-	PostService.getPosts()
-	.then(function(posts){
-		res.json(posts)
-	}).catch(function(err){
-		res.status(500).json(err)
+	var userId = req.params.userid
+	//console.log("postController line 48 userId: ", userId)
+	PostService.getPosts(userId)
+	.then(function(user){
+		//console.log("postController line 51 user: ", user)
+		post = user.posts
+		//console.log("postcontroller line 53: ", post)
+		res.json(post)
 	})
+	// .catch(function(err){
+	// 	res.status(500).json(err)
+	// })
 }

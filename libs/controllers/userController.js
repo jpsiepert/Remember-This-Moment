@@ -31,17 +31,21 @@ module.exports.getUser = function(req, res){
 			res.status(200).send("found")
 		}).catch(function(err){
 			res.status(500).send(err)
-			console.log(err)
+			console.log("userController line 34 err: ", err)
 		})
 	}
 };
 
 module.exports.updateUser = function(req, res){
-	UserService.updateUser(req.params.user)
+	console.log("userController line 40", req.body)
+	var userId = req.params.userid
+	user = req.body
+	UserService.updateUser(userId, user)
 	.then(function(user){
-		res.status(200).send("updated")
+		console.log("userController line 44 user: ", user)
+		res.status(200).send(user)
 	}).catch(function(err){
 		res.status(500).send(err)
-		console.log(err)
+		console.log("userController line 45 err: ",err)
 	})
 }

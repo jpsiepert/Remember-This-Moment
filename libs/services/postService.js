@@ -27,14 +27,23 @@ module.exports.addPost = function(post){
 
 
 	return new Post(post).saveAsync().then(function(savedPost){
-		console.log(savedPost);
+		//console.log("postService line 30 savedPost: ", savedPost);
 		return savedPost;
 	});
 
 }
 
-module.exports.getPosts = function(){
-	return Post.findAsync();
+module.exports.getPosts = function(userId){
+	//return Post.findAsync();
+	//console.log("postService line 38 userId", userId)
+	return User.findOne({_id: userId}).populate("posts").exec(function(err, obj){
+		if(!err){
+			//console.log("postService line 40: ", obj)
+			return obj.posts
+		} else {
+			//console.log("post service line 42 err:", err)
+		}
+	})
 }
 
 

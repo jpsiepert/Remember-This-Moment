@@ -1,11 +1,16 @@
 var app = angular.module("RememberThisMoment");
 
-app.controller("editService", function($http, $q){
+app.service("editService", function($http, $q){
 	this.editUser = function(user){
+		debugger;
+		console.log(user)
 		return $http({
 			method: "PUT",
-			url: "/user",
+			url: "/user/" + user._id,
 			data: user
+		}).then(function(results){
+			console.log(results)
+			return results;
 		})
 	}
 

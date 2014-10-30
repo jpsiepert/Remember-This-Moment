@@ -8,7 +8,7 @@ app.service("feedService", function($http, $q){
 			url: "user/post/" + user._id,
 			data: {text: post}
 		}).then(function(results){
-			debugger;
+
 			deferred.resolve(results.data)
 		})
 		return deferred.promise
@@ -21,10 +21,15 @@ app.service("feedService", function($http, $q){
 		})
 	}
 
-	this.getPosts = function(){
+	this.getPosts = function(user){
+
+		console.log(user._id)
 		return $http ({
 			method: "GET",
-			url: "/user/posts"
+			url: "/user/posts/" + user._id
+		}).then(function(posts){
+			console.log(posts)
+			return posts
 		})
 	}
 

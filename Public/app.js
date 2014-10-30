@@ -28,9 +28,14 @@ app.config(function($routeProvider){
 				return loginService.getMyData;
 			}
 		}
-	}).when("/edit", {
-		templateUrl: "/Templates.edit.html",
-		controller: "editCtrl"
+	}).when("/edit/:userid", {
+		templateUrl: "Templates/edit.html",
+		controller: "editCtrl",
+		resolve: {
+			user: function(loginService){
+				return loginService.getMyData;
+			}
+		}
 	}).otherwise({
 		redirectTo: "/"
 	})

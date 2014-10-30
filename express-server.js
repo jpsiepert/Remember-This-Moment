@@ -37,7 +37,7 @@ passport.use(new LocalStrategy(
 	},
   function(email, password, done) {
     User.findOne({ email: email, password: password }, function (err, user) {
-    	console.log(email, password);
+    	console.log("express-server line 40 email & password ", email, password);
       if (err) { 
       	return done(err); 
       }
@@ -58,7 +58,7 @@ connection.once("open", function(){
 
 var authenticateUser = function(req, res, next){
 	passport.authenticate("local", function(err, user, info){
-		console.log(user);
+		console.log("express-server line 61 user: ", user);
 		if(!user){
 			return res.status(401).end();
 		}
@@ -90,10 +90,10 @@ app.post("/logout", function(req, res){
 
 app.get("/user", requireAuth, UserController.getUser)
 
-app.put("/user", requireAuth, UserController.updateUser)
+app.put("/user/:userid", requireAuth, UserController.updateUser)
 
 //to do set up to get posts for just that user
-app.get("/user/posts", requireAuth, PostController.getPosts);
+app.get("/user/posts/:userid", requireAuth, PostController.getPosts);
 
 app.post("/user/post/:userid", requireAuth, PostController.addPost);
 

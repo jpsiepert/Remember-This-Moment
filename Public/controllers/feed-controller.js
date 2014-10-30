@@ -5,12 +5,12 @@ app.controller("feedCtrl", function($scope, $location, feedService, loginService
 		debugger;
 		feedService.addPost($scope.newPost, $scope.user)
 			.then(function(results){
-				console.log(results)
-				$scope.posts = results;
+				console.log(results.posts)
+				$scope.posts = results.posts.reverse();
 				$scope.newPost = '';
 
 			})
-			$scope.getPosts();
+			//$scope.getPosts();
 	}
 
 	$scope.logout = function(){
@@ -21,14 +21,18 @@ app.controller("feedCtrl", function($scope, $location, feedService, loginService
 	}
 
 	$scope.getPosts = function(){
-		feedService.getPosts()
+		feedService.getPosts($scope.user)
 		.then(function(data){
+
+			console.log(data.data)
 			$scope.posts = data.data
 
 		})
 	}
 
-
+	$scope.goToEdit = function(){
+		$location.path("/edit/" + $scope.user._id)
+	}
 	// $scope.getUser = function(){
 	// 	feedService.getUser()
 	// 	.then(function(user){
