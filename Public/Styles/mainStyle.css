@@ -25,33 +25,40 @@
 	text-align: center;
 }
 
-.search-feed {
+/*.search-feed {
 	width: 150px;
-	margin-left: auto;
+	margin-left: 20px;
 	margin-right: auto;
-}
+	padding-top: 10px;
+}*/
 
 .feed-page-nav{
 	background: rgba(68, 211, 0, .2);
-	float: left;
+	/*float: left;*/
 	list-style-type: none;
-
 }
 
 .feed-page-content{
 	background: rgba(68, 211, 0, .2);
-	float: right;
+
+	/*float: right;*/
 	
 }
-
+/*
 #new-post{
 	width: 150px;
 	margin-left: auto;
 	margin-right: auto;
 }
+*/
 
+/*.new-post{
+	min-width: 500px;
+	min-height: 5px;
+	border: solid 1px blue;
+}*/
 .new-post-text {
-		width: 11.75em;
+		max-width: 50em;
 		height: 2.5em;
 		font-size: 13px;
 		padding: 5px;

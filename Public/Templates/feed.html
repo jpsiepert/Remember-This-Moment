@@ -1,34 +1,55 @@
-<div>Hello, {{user.firstName}}</div>
-
-<div class="search-feed">
-	<input type="text" placeholder="search"/><!-- is really going to filter the results, so it's automatic no enter or click needed -->
-</div>
-
-<br/>
-<br/>
-<div id="new-post">
-	<textarea name-of-directive class="new-post-text" ng-model="newPost"></textarea><!--need to make this expand as the text expands-->
-	<button class="btn btn-sm new-post-button" ng-click="addPost()">Remember!</button><!-- want to make this a mini button -->
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">Hello, {{user.firstName}}!</div>
+    <div class="col-md-2">View Text</div>
+    <div class="col-md-2">View Photos</div>
+    <div class="col-md-2">View Videos</div>
+    <div class="col-md-2"><a ng-click="goToEdit()">Edit Profile</a></div>
+    <div class="col-md-2"><a ng-click="logout()">Sign Out</a></div>
+  </div>
+  <hr>
 <br/><br/>
-<div class="container-fluid">
- 	<div class="row-fluid">
+  <div class="row">
+    <div class="col-md-2"> 
+      <input class="new-post-text" type="text" placeholder="search"/><!-- is really going to filter the results, so it's automatic no enter or click needed -->
+    </div>
+    <div class="col-md-6">
+      <!--<input name-of-directive class="new-post-text" ng-model="newPost" /> need to make this expand as the text expands-->
+   <!--    <span contenteditable="true" class="new-post" ng-model="newPost" placeholder="What do you want to remember today?"></span> -->
+      <textarea expand-text-box class="new-post-text" ng-model="newPost" ></textarea> 
+      <button class="btn btn-sm new-post-button text-right" ng-click="addPost()">Remember!</button><!-- want to make this a mini button -->
+    </div>
+  </div>
+
+
+
+
+
+<br/>
+ 	<!-- <div class="row-fluid">
+    <div class="col-md-3">
   	<ul class="navbar-fixed-side-left feed-page-nav">
  			<a ng-click="logout()">Sign Out</a>
  			<li>View Text</li>
  			<li>View Photos</li>
  			<li>View Videos</li>
-      <a ng-click="goToEdit()">Edit Profile</li>
+      <a ng-click="goToEdit()">Edit Profile</a>
 
- 			<!-- for viewing just photos/videos/text have a function that hides the other 2. -->
+ 			for viewing just photos/videos/text have a function that hides the other 2. 
 		</ul>
-    <div ng-repeat="post in posts" class="col-md-10 feed-page-content">
+    </div>
+    </div> -->
+ 
+    <div class="row">
+    <div ng-repeat="post in posts" class="col-md-12 feed-page-content">
       <!--Body content-->
+      <hr>
       <p class="feed-body">{{post.text}}
       <br/>
-      {{post.time}}</p>
+      {{post.time | date: 'medium'}}</p>
       <hr>
     </div>
   </div>
 </div>
+
 

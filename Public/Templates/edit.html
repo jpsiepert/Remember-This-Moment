@@ -1,13 +1,52 @@
-<div>
-	First Name <input placeholder="update First Name" ng-model="user.firstName" /><br /><br />
-	Last Name <input placeholder="update Last Name" ng-model="user.lastName"/><br /><br />
-	E-mail    <input placeholder="update e-mail address" ng-model="user.email"/><br /><br />
-	          <input type="password" placeholder="confirm old password" ng-blur="checkPassword()"/> <br />
-	          <input type="password" placeholder="update password" ng-keyup="confirmPwds()" ng-model="user.password"/><br />
-			 <input type="password" placeholder="confirm new password" ng-keyup="confirmPwds()" ng-model="confirmPw"/>
+<div class="container">
+ <div class="row">
+    <div class="col-md-2">Hello, {{user.firstName}}!</div>
+    <div class="col-md-2">View Text</div>
+    <div class="col-md-2">View Photos</div>
+    <div class="col-md-2">View Videos</div>
+    <div class="col-md-2"><a ng-click="goToFeed()">View Feed</a></div>
+    <div class="col-md-2"><a ng-click="logout()">Sign Out</a></div>
+  </div>
+  <hr>
+<br/><br/>
+<div class="row">
+	<div class="col-md-6 col-md-offset-5">
+		First Name <input placeholder="update First Name" ng-model="user.firstName" /><br /><br />
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6 col-md-offset-5">
+		Last Name <input placeholder="update Last Name" ng-model="user.lastName"/><br /><br />
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6 col-md-offset-5">
+		E-mail    <input placeholder="update e-mail address" ng-model="user.email"/><br /><br />
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-5">
+		 <input type="password" placeholder="confirm old password" ng-blur="checkPassword()"/> <br />
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6 col-md-offset-5">
+		 <input type="password" placeholder="update password" ng-keyup="confirmPwds()" ng-model="user.password"/><br />
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6 col-md-offset-5">
+		 <input type="password" placeholder="confirm new password" ng-keyup="confirmPwds()" ng-model="confirmPw"/>
 			 <br /><br />
 			 <p ng-show="password">Passwords do not match</p>
-			 <button ng-show="updateButton" ng-click="update(user)">Update yourself!</button>
-
-
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6 col-md-offset-5">
+		<button ng-show="updateButton" ng-click="update(user)">Update yourself!</button>
+	</div>
+</div>
+	
+	         
 </div>

@@ -1,6 +1,6 @@
 var app = angular.module("RememberThisMoment");
 
-app.controller("editCtrl", function($location, editService, $scope){
+app.controller("editCtrl", function($location, $cookieStore, editService, feedService, $scope){
 
 	$scope.update = function(user){
 		debugger;
@@ -28,5 +28,20 @@ app.controller("editCtrl", function($location, editService, $scope){
 		}
 	}
 
+	// $scope.checkPassword = function(){
 
+	// }
+
+	$scope.goToFeed = function(){
+		$location.path("/main/" + $scope.user._id)
+	}
+
+		$scope.logout = function(){
+		feedService.logout()
+
+			.then(function(){
+				$cookieStore.remove("user")
+				$location.path("/")
+			})
+	}
 })

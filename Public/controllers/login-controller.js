@@ -11,4 +11,9 @@ app.controller("loginCtrl", function($scope, loginService, $location){
 				$location.path("/main/" +  user._id)
 			})
 	}
+
+	$scope.signUp = function(){
+		$location.path("/signup");
+	
+	}
 })

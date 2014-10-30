@@ -2,9 +2,10 @@ var UserService = require("../services/userService");
 var Promise = require("bluebird");
 
 module.exports.post = function(req, res){
-	console.log("controller")
+	console.log("controller, and req.body: ", req.body)
 	UserService.postUser(req.body)
 		.then(function(user){
+			console.log("controller again")
 			res.send(user);
 		}).catch(function(err){
 			res.status(500).send("that email is already in use")

@@ -20,6 +20,8 @@ app.controller("signUpCtrl", function($scope, signUpService, $location){
 		//debugger;
 		signUpService.addUser($scope.user)
 			.then(function(data){
+				//console.log(data)
+			//id = data.data[0]._id
 				console.log("user added successfully", data.data)
 				$location.path("/main")
 			})
