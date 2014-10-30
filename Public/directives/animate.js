@@ -8,7 +8,10 @@ app.directive('nameOfDirective', function(){
 	
 			elem.bind('focus', function(){
 
-				elem.css({"height": "5em"})
+				elem.css({"height": "15em"})
+			elem.bind("blur", function(){
+				elem.css({"height": "2.5em"})
+			})
 			})
 		}
 	}

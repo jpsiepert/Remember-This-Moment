@@ -28,10 +28,20 @@ module.exports.getUser = function(req, res){
 
 			UserService.getUser(req.pararms.user)
 		.then(function(user){
-			res.status(200).send("found, logging in")
+			res.status(200).send("found")
 		}).catch(function(err){
 			res.status(500).send(err)
 			console.log(err)
 		})
 	}
+};
+
+module.exports.updateUser = function(req, res){
+	UserService.updateUser(req.params.user)
+	.then(function(user){
+		res.status(200).send("updated")
+	}).catch(function(err){
+		res.status(500).send(err)
+		console.log(err)
+	})
 }

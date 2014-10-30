@@ -5,11 +5,12 @@ var express = require("express"),
 	port = 9393,
 	mongoUri = "mongodb://localhost/remember",
 	UserController = require("./libs/controllers/userController"),
+	PostController = require("./libs/controllers/postController"),
 	connection = mongoose.connection,
 	cors = require("cors"),
 	passport = require("passport"),
 	LocalStrategy = require("passport-local"),
-	User = require("./libs/Models/users")
+	User = require("./libs/Models/users"),
 	session = require("express-session");
 	
 
@@ -62,12 +63,20 @@ var authenticateUser = function(req, res, next){
 			return res.status(401).end();
 		}
 		req.logIn(user, function(err){
-			return res.status(200).end();
+			user.password = '';
+			return res.status(200).send(user);
 		});
 	})(req, res, next);
 }
 
-app.get("/users", UserController.get)
+
+var requireAuth = function(req, res, next){
+	if(!req.isAuthenticated()){
+		return res.status(401).end()
+	}
+	next();
+}
+//app.get("/users", UserController.get)
 
 app.post("/newUser", UserController.post)
 
@@ -77,7 +86,18 @@ app.post("/logout", function(req, res){
 	console.log("made it to the server")
 	req.logout();
 	return res.status(200).end();
-})
+});
+
+app.get("/user", requireAuth, UserController.getUser)
+
+app.put("/user", requireAuth, UserController.updateUser)
+
+//to do set up to get posts for just that user
+app.get("/user/posts", requireAuth, PostController.getPosts);
+
+app.post("/user/post/:userid", requireAuth, PostController.addPost);
+
+app.get("/main", requireAuth, PostController.getPosts);
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);

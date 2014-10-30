@@ -1,3 +1,5 @@
+<div>Hello, {{user.firstName}}</div>
+
 <div class="search-feed">
 	<input type="text" placeholder="search"/><!-- is really going to filter the results, so it's automatic no enter or click needed -->
 </div>
@@ -5,7 +7,7 @@
 <br/>
 <br/>
 <div id="new-post">
-	<textarea name-of-directive class="new-post-text"></textarea>
+	<textarea name-of-directive class="new-post-text" ng-model="newPost"></textarea><!--need to make this expand as the text expands-->
 	<button class="btn btn-sm new-post-button" ng-click="addPost()">Remember!</button><!-- want to make this a mini button -->
 </div>
 <br/><br/>
@@ -16,13 +18,16 @@
  			<li>View Text</li>
  			<li>View Photos</li>
  			<li>View Videos</li>
+      <a ng-click="">Edit Profile</li>
 
  			<!-- for viewing just photos/videos/text have a function that hides the other 2. -->
 		</ul>
-    <div class="col-md-10 feed-page-content">
+    <div ng-repeat="post in user.posts" class="col-md-10 feed-page-content">
       <!--Body content-->
-      My baby rocks!
-
+      {{post.text}}
+      <br/>
+      {{post.time}}
+      <hr>
     </div>
   </div>
 </div>

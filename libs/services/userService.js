@@ -15,7 +15,22 @@ module.exports.getUsers = function(){
 
 module.exports.getUser = function(user){
 	console.log("hit service")
-	return User.findOneAsync({email: user.email}, function(err, obj){
-		conole.log(obj)
+	return User.findOne({email: user.email}).populate("posts").exec(function(err, obj){
+		console.log(obj)
+		if(!err){
+			console.log(obj)
+		} else {
+			console.log(err)
+		}
 	})
+}
+
+module.exports.updateUser = function(user){
+	return User.findOneAndUpdateAsync({email: user.email}, user, function(err, obj){
+		if(!err){
+			console.log(obj)
+		} else {
+			console.log(err)
+		}
+	});
 }

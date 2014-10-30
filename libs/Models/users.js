@@ -1,5 +1,7 @@
 var mongoose = require("mongoose"),
 	Schema = mongoose.Schema,
+	// post = require("./posts"),
+	ObjectId = Schema.Types.ObjectId,
 	bcrypt = require("bcrypt-nodejs");
 
 
@@ -12,7 +14,9 @@ var mongoose = require("mongoose"),
 			year: {type: Number, required: true}
 		},
 		email: {type: String, required: true, unique: true},
-		password: {type: String, required: true}
+		password: {type: String, required: true},
+		posts: [{type: ObjectId, ref: 'Post'}]
+		
 	})
 //generates a hash
 User.methods.generateHash = function(password){
@@ -23,4 +27,5 @@ User.methods.validPassword = function(password){
 	return bcrypt.compareSync(password, this.local.password);
 }
 
-module.exports = mongoose.model("User", User);8
+module.exports = mongoose.model("User", User);
+
