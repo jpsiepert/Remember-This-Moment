@@ -15,7 +15,7 @@ app.controller("feedCtrl", function($scope, $cookieStore, $location, feedService
 
 	$scope.logout = function(){
 			debugger;
-		feedService.logout()
+		feedService.logout($scope.currentUser)
 	
 			.then(function(){
 					debugger;

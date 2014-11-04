@@ -14,10 +14,11 @@ app.service("feedService", function($http, $q){
 		return deferred.promise
 	}
 
-	this.logout = function(){
+	this.logout = function(user){
 		return $http({
 			method: "POST",
-			url: "/logout"
+			url: "/logout",
+			data: user
 		})
 	}
 

@@ -37,7 +37,7 @@ app.controller("editCtrl", function($location, $cookieStore, editService, feedSe
 	}
 
 		$scope.logout = function(){
-		feedService.logout()
+		feedService.logout($scope.currentUser)
 
 			.then(function(){
 				$cookieStore.remove("currentUser")
