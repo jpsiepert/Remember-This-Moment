@@ -2,7 +2,7 @@ var UserService = require("../services/userService");
 var Promise = require("bluebird");
 
 module.exports.post = function(req, res){
-	console.log("controller, and req.body: ", req.body)
+	console.log("usercontroller line 5, and req.body: ", req.body)
 	UserService.postUser(req.body)
 		.then(function(user){
 			console.log("controller again")

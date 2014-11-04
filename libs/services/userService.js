@@ -5,7 +5,7 @@ Promise.promisifyAll(User);
 Promise.promisifyAll(User.prototype);
 
 module.exports.postUser = function(user){
-	console.log("service, and user", user)
+	console.log("userservice line 8, and user", user)
 	return new User(user).saveAsync();
 }
 

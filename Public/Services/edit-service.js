@@ -22,3 +22,6 @@ app.service("editService", function($http, $q){
 	// 	})
 	// }
 });
+
+var app = angular.module("RememberThisMoment");
+

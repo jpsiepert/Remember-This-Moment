@@ -3,7 +3,7 @@ var app = angular.module("RememberThisMoment");
 app.controller("feedCtrl", function($scope, $cookieStore, $location, feedService, loginService){
 	$scope.addPost = function(){
 		debugger;
-		feedService.addPost($scope.newPost, $scope.user)
+		feedService.addPost($scope.newPost, $scope.currentUser)
 			.then(function(results){
 				console.log(results.posts)
 				$scope.posts = results.posts.reverse();
@@ -14,16 +14,18 @@ app.controller("feedCtrl", function($scope, $cookieStore, $location, feedService
 	}
 
 	$scope.logout = function(){
+			debugger;
 		feedService.logout()
-		
+	
 			.then(function(){
-				$cookieStore.remove("user")
+					debugger;
+				$cookieStore.remove("currentUser")
 				$location.path("/")
 			})
 	}
 
 	$scope.getPosts = function(){
-		feedService.getPosts($scope.user)
+		feedService.getPosts($scope.currentUser)
 		.then(function(data){
 
 			console.log(data.data)
@@ -33,7 +35,7 @@ app.controller("feedCtrl", function($scope, $cookieStore, $location, feedService
 	}
 
 	$scope.goToEdit = function(){
-		$location.path("/edit/" + $scope.user._id)
+		$location.path("/edit/" + $scope.currentUser._id)
 	}
 	// $scope.getUser = function(){
 	// 	feedService.getUser()

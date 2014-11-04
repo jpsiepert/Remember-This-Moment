@@ -23,7 +23,7 @@ app.service("feedService", function($http, $q){
 
 	this.getPosts = function(user){
 
-		console.log(user._id)
+		//.log(currentUser._id)
 		return $http ({
 			method: "GET",
 			url: "/user/posts/" + user._id
@@ -45,7 +45,9 @@ app.service("feedService", function($http, $q){
 // getMyData: function() {
 //       var deferred = $q.defer();
 
-//       $http({method: 'GET', url:'/api/user/me'})
+//       $http({
+//       	method: 'GET', 
+//       	url:'/user'})
 //         .success(function(response) {
 //           console.log('success', response);
 //           deferred.resolve(response);

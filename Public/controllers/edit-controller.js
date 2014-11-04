@@ -40,7 +40,7 @@ app.controller("editCtrl", function($location, $cookieStore, editService, feedSe
 		feedService.logout()
 
 			.then(function(){
-				$cookieStore.remove("user")
+				$cookieStore.remove("currentUser")
 				$location.path("/")
 			})
 	}
