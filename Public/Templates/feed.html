@@ -16,11 +16,17 @@
     <div class="col-md-6">
       <!--<input name-of-directive class="new-post-text" ng-model="newPost" /> need to make this expand as the text expands-->
    <!--    <span contenteditable="true" class="new-post" ng-model="newPost" placeholder="What do you want to remember today?"></span> -->
-      <textarea expand-text-box class="new-post-text" ng-model="newPost" ></textarea> 
+      <textarea expand-text-box class="new-post-text" ng-model="newPost.text" ></textarea> 
+     <!-- <input expand-text-box class="new-post-text" ng-model="newPost.text"/> DID NOT EXPAND-->
+   <!--    <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span> DID NOT ALLOW TO BE WRITTEN  IN--> 
       <button class="btn btn-sm new-post-button text-right" ng-click="addPost()">Remember!</button><!-- want to make this a mini button -->
     </div>
   </div>
-
+<div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile" ng-model="newPost.pic">
+    <!--<button ng-click="addPost()">Pictures!</button>-->
+  </div>
 
 
 

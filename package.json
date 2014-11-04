@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/jpsiepert/Remember-This-Moment",
   "dependencies": {
+    "bcrypt": "^0.8.0",
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^2.3.6",
     "body-parser": "^1.9.1",

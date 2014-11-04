@@ -18,13 +18,19 @@ app.controller("signUpCtrl", function($scope, signUpService, $location){
 
 	$scope.addUser = function(){
 		//debugger;
-		console.log($scope.user)
+		//console.log($scope.user)
 		signUpService.addUser($scope.user)
 			.then(function(data){
 				//console.log(data)
 			//id = data.data[0]._id
-				console.log("user added successfully", data.data)
+				//console.log("user added successfully", data.data)
 				$location.path("/main/" + currentUser._id)
 			})
 	}
+
+	$scope.loginPage = function(){
+		$location.path("/")
+	}
 })
+
+//$2a$10$zAtSBtdgQ4DTA07779iTuO7MOoAcwWusMu4aFKBJeVBHWtgPrVe86

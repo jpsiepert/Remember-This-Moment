@@ -6,7 +6,7 @@ app.service("feedService", function($http, $q){
 		 $http({
 			method: "POST",
 			url: "user/post/" + user._id,
-			data: {text: post}
+			data: post
 		}).then(function(results){
 
 			deferred.resolve(results.data)
@@ -29,7 +29,7 @@ app.service("feedService", function($http, $q){
 			method: "GET",
 			url: "/user/posts/" + user._id
 		}).then(function(posts){
-			console.log(posts)
+			//console.log(posts)
 			return posts
 		})
 	}

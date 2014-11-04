@@ -33,7 +33,7 @@ app.controller("editCtrl", function($location, $cookieStore, editService, feedSe
 	// }
 
 	$scope.goToFeed = function(){
-		$location.path("/main/" + $scope.user._id)
+		$location.path("/main/" + $scope.currentUser._id)
 	}
 
 		$scope.logout = function(){

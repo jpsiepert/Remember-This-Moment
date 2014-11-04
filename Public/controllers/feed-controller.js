@@ -2,10 +2,10 @@ var app = angular.module("RememberThisMoment");
 
 app.controller("feedCtrl", function($scope, $cookieStore, $location, feedService, loginService){
 	$scope.addPost = function(){
-		debugger;
+		//debugger;
 		feedService.addPost($scope.newPost, $scope.currentUser)
 			.then(function(results){
-				console.log(results.posts)
+				//console.log(results.posts)
 				$scope.posts = results.posts.reverse();
 				$scope.newPost = '';
 
@@ -14,11 +14,11 @@ app.controller("feedCtrl", function($scope, $cookieStore, $location, feedService
 	}
 
 	$scope.logout = function(){
-			debugger;
+			//debugger;
 		feedService.logout($scope.currentUser)
 	
 			.then(function(){
-					debugger;
+					//debugger;
 				$cookieStore.remove("currentUser")
 				$location.path("/")
 			})
@@ -28,7 +28,7 @@ app.controller("feedCtrl", function($scope, $cookieStore, $location, feedService
 		feedService.getPosts($scope.currentUser)
 		.then(function(data){
 
-			console.log(data.data)
+			//console.log(data.data)
 			$scope.posts = data.data.reverse();
 
 		})

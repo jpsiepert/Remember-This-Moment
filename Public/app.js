@@ -4,7 +4,7 @@ app.run(function($rootScope, $location, $route, $cookieStore){
 	$rootScope.$on("$routeChangeStart", function(evt, next, current){
 		if($cookieStore.get("currentUser")){
 			$rootScope.currentUser = $cookieStore.get("currentUser")
-			console.log($rootScope.currentUser)
+			//console.log($rootScope.currentUser)
 		} else if(next.templateUrl === "Templates/signup.html"){
 			$location.path("/signup")
 		} else {

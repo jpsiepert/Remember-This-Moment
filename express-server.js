@@ -34,17 +34,35 @@ app.use(passport.session());//persistent login sessions
 passport.use(new LocalStrategy(
 	{
 		usernameField: "email",
-		passwordField: "password"
+		passwordField: "password"//also tried User.comparePassword
 	},
   function(email, password, done) {
-    User.findOne({ email: email, password: password }, function (err, user) {
-    	console.log("express-server line 40 email & password ", email, password);
+  	//User.comparePassword();
+    User.findOne({ email: email}, function (err, user) {
+    	//User.comparePassword
+    	console.log("express-server line 43 email password ", email, password);
       if (err) { 
+      	console.log(err);
       	return done(err); 
+      } else {
+      	user.comparePassword(password, function(err, isMatch){
+      		if(err){
+      			return done(err)
+      		} else {
+      			if(!isMatch){
+      				console.log("Passwords dont match line 50")
+      				return done(false)
+      			} else {
+      				console.log(user, "Passwords matched line 52")
+				 	return done(null, user);
+      			}
+  			}
+      	})
       }
+      //User.comparePassword;
       //if (!user) { return done(null, false); }
       //if (!user.verifyPassword(password)) { return done(null, false); }
-      return done(null, user);
+      //return done(null, user); TRYING COMPAREPASSWORD METHOD INSTEAD
     });
   
 }));

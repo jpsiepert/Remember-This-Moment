@@ -4,10 +4,10 @@ app.controller("loginCtrl", function($scope, loginService, $location){
 	$scope.test = "hello"
 
 	$scope.loginUser = function(){
-	
+		//debugger;
 		loginService.login($scope.user)
 			.then(function(user){
-				console.log(user)
+				//console.log(user)
 				$location.path("/main/" +  user._id)
 			})
 	}

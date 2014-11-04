@@ -4,7 +4,8 @@ var mongoose = require("mongoose"),
 
 	Post = new Schema ({
 	text: {type: String, required: true},
-	time: {type: Date, default: Date.now}
+	time: {type: Date, default: Date.now},
+	pic: {type: String}
 
 	})
 //generates a hash
