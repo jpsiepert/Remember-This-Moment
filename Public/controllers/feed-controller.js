@@ -33,6 +33,7 @@ app.controller("feedCtrl", function($scope, $cookieStore, $location, feedService
 
 		})
 	}
+	//TO DO edit and delete posts
 
 	$scope.goToEdit = function(){
 		$location.path("/edit/" + $scope.currentUser._id)
@@ -46,4 +47,12 @@ app.controller("feedCtrl", function($scope, $cookieStore, $location, feedService
 	// }
 	$scope.getPosts();
 	//$scope.getUser();
+
+// 	function startRead(evt) {
+//     	$scope.file = document.getElementById(‘file‘).files[0];
+//     if (file) {
+//         //  getAsText(file);
+//         alert("Name: " + file.name + "\n" + "Last Modified Date :" + file.lastModifiedDate);
+//     }
+// }
 })

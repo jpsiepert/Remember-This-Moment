@@ -3,6 +3,7 @@ var app = angular.module("RememberThisMoment")
 app.controller("loginCtrl", function($scope, loginService, $location){
 	$scope.test = "hello"
 
+
 	$scope.loginUser = function(){
 		//debugger;
 		loginService.login($scope.user)
@@ -11,6 +12,7 @@ app.controller("loginCtrl", function($scope, loginService, $location){
 				$location.path("/main/" +  user._id)
 			})
 	}
+
 
 	$scope.signUp = function(){
 		$location.path("/signup");

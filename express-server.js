@@ -47,7 +47,7 @@ passport.use(new LocalStrategy(
       } else {
       	user.comparePassword(password, function(err, isMatch){
       		if(err){
-      			return done(err)
+      		return done(err)
       		} else {
       			if(!isMatch){
       				console.log("Passwords dont match line 50")
@@ -79,7 +79,7 @@ var authenticateUser = function(req, res, next){
 	passport.authenticate("local", function(err, user, info){
 		console.log("express-server line 61 user: ", user);
 		if(!user){
-			return res.status(401).end();
+			return res.status(400).send(err, "user or password incorrect");
 		}
 		req.logIn(user, function(err){
 			user.password = '';

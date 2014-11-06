@@ -1,3 +1,17 @@
+body {
+	/*padding-top: 70px;*/
+	background-image: url("scroll.jpg"); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100%;
+  min-width: 100%;
+
+}
 .remember {
 	background: #44D300;
 
@@ -59,6 +73,16 @@
 }*/
 .new-post-text {
 		max-width: 50em;
+		min-width: 25em;
+		height: 5em;
+		font-size: 13px;
+		padding: 5px;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		
+		box-sizing: border-box;
+}
+.new-post-text-search {
 		height: 2.5em;
 		font-size: 13px;
 		padding: 5px;
@@ -73,7 +97,27 @@
 
 	background: rgb(235, 235, 47);
 }
-
+.feed-header {
+	color: white;
+	border-bottom: 1px solid white;
+	margin-bottom: 5px;
+	/*position: fixed;*/
+	/*top: 0px; */
+	/*margin: auto; 
+	z-index: 100000; */
+}
 .feed-body {
 	text-align: center;
 }
+
+.feed-footer {
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+/*.white-font {
+	color: white !important;
+}*/

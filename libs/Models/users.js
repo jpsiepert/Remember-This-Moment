@@ -1,27 +1,27 @@
 var mongoose = require("mongoose"),
-	Schema = mongoose.Schema,
-	// post = require("./posts"),
-	ObjectId = Schema.Types.ObjectId,
-	bcrypt = require("bcrypt");
-	SALT_WORK_FACTOR = 10;
+    Schema = mongoose.Schema,
+    // post = require("./posts"),
+    ObjectId = Schema.Types.ObjectId,
+    bcrypt = require("bcrypt");
+    SALT_WORK_FACTOR = 10;
 
 
-	User = new Schema ({
-		firstName: {type: String, required: true},
-		lastName: {type: String, required: true},
-		birthday: {
-			month: {type: String, required: true},
-			day: {type: Number, required: true},
-			year: {type: Number, required: true}
-		},
-		email: {type: String, required: true, unique: true},
-		password: {type: String, required: true},
-		posts: [{type: ObjectId, ref: 'Post'}]
-		
-	})
+    User = new Schema ({
+        firstName: {type: String, required: true},
+        lastName: {type: String, required: true},
+        birthday: {
+            month: {type: String, required: true},
+            day: {type: Number, required: true},
+            year: {type: Number, required: true}
+        },
+        email: {type: String, required: true, unique: true},
+        password: {type: String, required: true},
+        posts: [{type: ObjectId, ref: 'Post'}]
+        
+    })
 //generates a hash
 // User.pre.generateHash = function(User.password){
-// 	return bcrypt.hash(password, bcrypt.)
+//  return bcrypt.hash(password, bcrypt.)
 // }
 
 User.pre('save', function(next) {
@@ -56,11 +56,11 @@ User.methods.comparePassword = function(candidatePassword, cb) {
 
 
 // User.statics.getAuthenticated = function(email, password, cb){
-// 	this.findOne({email: email}, function(err, user){
-// 		if(err) return cb(err);
-// 		if(!user){
-// 			return cb(null, null)
-// 		}
-// 	})
+//  this.findOne({email: email}, function(err, user){
+//      if(err) return cb(err);
+//      if(!user){
+//          return cb(null, null)
+//      }
+//  })
 // }
 module.exports = mongoose.model("User", User);

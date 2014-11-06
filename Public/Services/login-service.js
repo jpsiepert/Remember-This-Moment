@@ -14,6 +14,7 @@ app.service("loginService", function($http, $cookieStore){
 				})
 	}
 
+
 	this.getMyData = function() {
       var deferred = $q.defer();
 
