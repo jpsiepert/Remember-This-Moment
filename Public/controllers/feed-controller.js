@@ -48,6 +48,13 @@ app.controller("feedCtrl", function($scope, $cookieStore, $location, feedService
 	$scope.getPosts();
 	//$scope.getUser();
 
+
+	$scope.deletePost = function(post){
+		//debugger;
+		console.log(post, $scope.currentUser)
+		feedService.deletePost(post, $scope.currentUser)
+		.then($scope.getPosts())
+	}
 // 	function startRead(evt) {
 //     	$scope.file = document.getElementById(‘file‘).files[0];
 //     if (file) {

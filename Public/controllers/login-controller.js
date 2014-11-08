@@ -12,7 +12,9 @@ app.controller("loginCtrl", function($scope, loginService, $location){
 				$location.path("/main/" +  user._id)
 			})
 	}
-
+	$scope.facebookLogin = function(){
+		loginService.loginFacebook()
+	}
 
 	$scope.signUp = function(){
 		$location.path("/signup");

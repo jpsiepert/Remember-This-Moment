@@ -1,5 +1,5 @@
 body {
-	/*padding-top: 70px;*/
+	padding-top: 70px;
 	background-image: url("scroll.jpg"); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -10,6 +10,7 @@ body {
   background-attachment: fixed;
   min-height: 100%;
   min-width: 100%;
+
 
 }
 .remember {
@@ -26,7 +27,7 @@ body {
 }
 
 .remember-index {
-	border: 1px solid #112906;
+	/*border: 1px solid #112906;*/
 	min-height: 50px;
 }
 
@@ -47,13 +48,13 @@ body {
 }*/
 
 .feed-page-nav{
-	background: rgba(68, 211, 0, .2);
+	background: rgba(68, 180, 0, .2);
 	/*float: left;*/
 	list-style-type: none;
 }
 
 .feed-page-content{
-	background: rgba(68, 211, 0, .2);
+	background: rgba(50, 2, 50, .2);
 
 	/*float: right;*/
 	
@@ -117,6 +118,10 @@ body {
 a {
 	text-decoration: none;
 	color: white;
+}
+
+.login-facebook {
+	font-size: 45px;
 }
 /*.white-font {
 	color: white !important;

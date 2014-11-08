@@ -65,6 +65,7 @@
       <p class="feed-body">{{post.text}}
       <br/>
       {{post.time | date}}</p>
+      <button class="feed-body" ng-click="deletePost(post)">Delete</button>
       <hr>
     </div>
   </div>

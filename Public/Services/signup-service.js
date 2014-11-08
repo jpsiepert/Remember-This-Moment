@@ -9,10 +9,12 @@ app.service("signUpService", function($http, $cookieStore){
 			url: "/newUser",
 			data: user
 		}).then(function(newUser){
+			console.log(newUser.data[0])
 			//console.log("newUser", newUser)
-			$cookieStore.put("currentUser", newUser.data[0]);
+			//$cookieStore.put("currentUser", newUser.data[0]);
 			//console.log(newUser.data[0]._id)
-			return newUser.data[0]
+			return newUser.data[0];
+
 			})
 
 	}

@@ -46,6 +46,35 @@ module.exports.getPosts = function(userId){
 	})
 }
 
+module.exports.deletePost = function(userId, postId, cb){
+	return User.findOne({_id: userId}, function(err, userObj){
+		console.log("postService line 53 user:", userObj, "postId", post)
+		if(userObj.posts.indexOf(postId) !== -1){
+			userObj.posts.splice((userObj.posts.indexOf(postId)), 1);
+			console.log("postService line 55", userObj.posts);
+			userObj.save(function(err){
+				err && cb(err, null);
+				Post.findOne({_id: postId}, function(err, postObj){
+					postObj.remove(function(err){
+						err && cb(err, null);
+
+						return cb(null, userObj);
+						
+					});
+				});
+					
+			});
+		};
+	});
+// 	return Post.remove({_id: postId}, function(err){
+// 	if(err){
+// 		return cb(err)
+// 	} else {
+// 		return cb();
+// 	}
+// })
+}
+
 
 
 // var newPost = new Post(post).saveAsync();

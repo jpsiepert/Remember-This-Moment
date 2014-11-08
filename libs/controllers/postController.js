@@ -57,3 +57,26 @@ module.exports.getPosts = function(req, res){
 	// 	res.status(500).json(err)
 	// })
 }
+
+module.exports.deletePost = function(req, res){
+	console.log("req", req, "req.params", req.params)
+	console.log("postController line 62, ", req.user, req.post)//find user and then find post
+	var user = req.params.userid;
+	var post = req.params.postid
+	PostService.deletePost(user, post, function(err, userObj){
+		if(err){
+			console.log(err, "userObj save failed");
+		} else {
+			res.send(userObj);
+		}
+	});
+};
+
+
+
+
+
+
+
+
+

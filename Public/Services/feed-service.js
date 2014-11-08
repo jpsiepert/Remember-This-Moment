@@ -34,6 +34,16 @@ app.service("feedService", function($http, $q){
 		})
 	}
 
+	this.deletePost = function(post, user){
+		console.log("post", post, "user", user)
+		return $http({
+			method: "DELETE",
+			url: "/user/post/" + user._id + "/" + post._id,
+			data: {user: user, post: post}
+		}).then(function(res){
+			console.log(res);
+		})
+	}
 	// this.getUser = function(){
 	// 	return $http ({
 	// 		method: "GET",
