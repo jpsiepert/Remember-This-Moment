@@ -12,7 +12,8 @@ var express = require("express"),
 	passport = require("passport"),
 	LocalStrategy = require("passport-local"),
 	User = require("./libs/Models/users"),
-	session = require("express-session");
+	session = require("express-session"),
+	facebook = require("passport-facebook").Strategy;
 	
 
 app.use(express.static(__dirname + "/public/"));
@@ -31,6 +32,18 @@ app.use(passport.initialize());
 
 app.use(passport.session());//persistent login sessions
 
+passport.use(new facebook({
+    clientID: "1571475143087172",
+    clientSecret: "c19eb7d9e91bcb8ded8db7f6c18b1fb0",
+    callbackURL: "http://localhost:9393/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({email: profile.email}, function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
+    });
+  }
+));
 passport.use(new LocalStrategy(
 	{
 		usernameField: "email",
@@ -97,9 +110,11 @@ var requireAuth = function(req, res, next){
 }
 //app.get("/users", UserController.get)
 
-app.post("/newUser", UserController.post)
+app.post("/newUser", UserController.post);
 
 app.post("/login", authenticateUser);
+
+app.get("/login", authenticateUser);
 
 app.post("/logout", function(req, res){
 	console.log("made it to the server")
@@ -107,7 +122,7 @@ app.post("/logout", function(req, res){
 	return res.status(200).end();
 });
 
-app.get("/user", requireAuth, UserController.getUser)
+//app.get("/user", requireAuth, UserController.getUser)
 
 app.put("/user/:userid", requireAuth, UserController.updateUser)
 
@@ -116,7 +131,9 @@ app.get("/user/posts/:userid", requireAuth, PostController.getPosts);
 
 app.post("/user/post/:userid", requireAuth, PostController.addPost);
 
-app.get("/main", requireAuth, PostController.getPosts);
+app.delete("/user/post/:userid/:postid", requireAuth, PostController.deletePost);
+
+//app.get("/main", requireAuth, PostController.getPosts);
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
